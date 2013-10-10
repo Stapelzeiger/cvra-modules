@@ -45,10 +45,12 @@ static int32_t bbox_y2 = 100;
 
 void polygon_set_boundingbox(int32_t x1, int32_t y1, int32_t x2, int32_t y2)
 {
+	OS_ENTER_CRITICAL();
 	bbox_x1 = x1;
 	bbox_y1 = y1;
 	bbox_x2 = x2;
 	bbox_y2 = y2;
+	OS_EXIT_CRITICAL();
 }
 
 uint8_t is_in_boundingbox(const point_t *p)
