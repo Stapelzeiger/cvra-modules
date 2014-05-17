@@ -1,6 +1,6 @@
-/*  
+/*
  *  Copyright Droids Corporation, Microb Technology, Eirbot (2005)
- * 
+ *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation; either version 2 of the License, or
@@ -22,11 +22,12 @@
 #ifndef _ERROR_H_
 #define _ERROR_H_
 
+#include <platform.h>
+
 #ifndef _AVERSIVE_ERROR_H_
 #error "Don't include <error.h>, include <aversive/error.h> instead"
 #endif
 
-#include <aversive.h>
 #include <general_errors.h>
 
 #define ERROR_SEVERITY_EMERG    0
@@ -37,18 +38,18 @@
 
 
 /** enable the dump of the comment */
-#define ERROR_DUMP_TEXTLOG 
+#define ERROR_DUMP_TEXTLOG
 
 /** enable the dump of filename and line number */
 #define ERROR_DUMP_FILE_LINE
 
-/** The error structure, which is given as a parameter in log funcs */ 
+/** The error structure, which is given as a parameter in log funcs */
 struct error {
-	uint8_t err_num;        /**< Error number */
-	uint8_t severity;       /**< Error severity */
+	unsigned int err_num;        /**< Error number */
+	unsigned int severity;       /**< Error severity */
 	const char * text;      /**< Error text */
 	const char * file;      /**< File in which the error occurred */
-	uint16_t line;          /**< Line number in which the error occurred */
+	unsigned int line;          /**< Line number in which the error occurred */
 };
 
 /** Structure of pointers to functions which are called on errors

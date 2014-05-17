@@ -1,29 +1,7 @@
-/*  
- *  Copyright Droids Corporation, Microb Technology, Eirbot (2006)
- * 
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
- *  Revision : $Id: pid.h,v 1.4.4.7 2008-05-09 08:24:33 zer0 Exp $
- *
- */
-
 #ifndef _PID_H_
 #define _PID_H_
 
-#include <aversive.h>
-#include <stdlib.h>
+#include <platform.h>
 
 /** the derivate term can be filtered to remove the noise. This value
  * is the maxium sample count to keep in memory to do this
@@ -33,23 +11,23 @@
 /** this is the pid_filter structure*/
 struct pid_filter
 {
-	int16_t gain_P; /**< Gain of Proportionnal module */
-	int16_t gain_I; /**< Gain of Integral module */
-	int16_t gain_D; /**< Gain of Derivate module */
+    int16_t gain_P; /**< Gain of Proportionnal module */
+    int16_t gain_I; /**< Gain of Integral module */
+    int16_t gain_D; /**< Gain of Derivate module */
 
-	uint8_t out_shift; /**< big common divisor for output */
+    uint8_t out_shift; /**< big common divisor for output */
 
-	uint8_t derivate_nb_samples; /**< sample count for derivate filter */
-	uint8_t index; /**< index in circular buffer below */
-	int32_t prev_samples[PID_DERIVATE_FILTER_MAX_SIZE]; /**< previous in (circular buf) */
-	
-	int32_t max_in; /**<  In saturation levels */
-	int32_t max_I; /**<   Integral saturation levels */
-	int32_t max_out; /**< Out saturation levels */
+    uint8_t derivate_nb_samples; /**< sample count for derivate filter */
+    uint8_t index; /**< index in circular buffer below */
+    int32_t prev_samples[PID_DERIVATE_FILTER_MAX_SIZE]; /**< previous in (circular buf) */
 
-	int32_t integral; /**< previous integral parameter */
-	int32_t prev_D;   /**< previous derivate parameter */
-	int32_t prev_out; /**< previous out command (for debug only) */
+    int32_t max_in; /**<  In saturation levels */
+    int32_t max_I; /**<   Integral saturation levels */
+    int32_t max_out; /**< Out saturation levels */
+
+    int32_t integral; /**< previous integral parameter */
+    int32_t prev_D;   /**< previous derivate parameter */
+    int32_t prev_out; /**< previous out command (for debug only) */
 };
 
 /** Inits pid */
@@ -71,7 +49,7 @@ void pid_set_maximums(struct pid_filter *p, int32_t max_in, int32_t max_I, int32
 void pid_set_out_shift(struct pid_filter *p, uint8_t out_shift);
 
 /** Sets the number of samples to use for the derivate filter.
- * 
+ *
  * @note Default value is 1 */
 int8_t pid_set_derivate_filter(struct pid_filter *p, uint8_t nb_samples);
 
@@ -99,6 +77,6 @@ int32_t pid_get_value_out(struct pid_filter *p);
 
 /** PID process */
 int32_t pid_do_filter(void *p, int32_t in);
-        
-        
+
+
 #endif
