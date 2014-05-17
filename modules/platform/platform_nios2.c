@@ -9,9 +9,9 @@ void reset(void)
     exit(EXIT_SUCCESS);
 }
 
-void panic(void)
+void panic(const char *msg)
 {
-    printf("%s()\n", __FUNCTION__);
+    printf("%s: %s\n", __FUNCTION__, msg);
     exit(EXIT_FAILURE);
 }
 

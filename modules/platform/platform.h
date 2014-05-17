@@ -11,7 +11,7 @@
 void reset(void);
 
 /** @brief Called after a non recoverable error. */
-void panic(void);
+void panic(const char *);
 
 
 #endif
