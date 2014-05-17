@@ -7,6 +7,8 @@
 #ifndef _AVERSIVE_H_
 #define _AVERSIVE_H_
 
+#include <system.h>
+#include <io.h>
 #include <stdint.h>
 #include <inttypes.h>
 
