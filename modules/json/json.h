@@ -43,21 +43,21 @@ struct JsonNode
 	/* only if parent is an object or array (NULL otherwise) */
 	JsonNode *parent;
 	JsonNode *prev, *next;
-	
+
 	/* only if parent is an object (NULL otherwise) */
 	char *key; /* Must be valid UTF-8. */
-	
+
 	JsonTag tag;
 	union {
 		/* JSON_BOOL */
 		bool bool_;
-		
+
 		/* JSON_STRING */
 		char *string_; /* Must be valid UTF-8. */
-		
+
 		/* JSON_NUMBER */
 		double number_;
-		
+
 		/* JSON_ARRAY */
 		/* JSON_OBJECT */
 		struct {
@@ -103,6 +103,12 @@ void json_append_member(JsonNode *object, const char *key, JsonNode *value);
 void json_prepend_member(JsonNode *object, const char *key, JsonNode *value);
 
 void json_remove_from_parent(JsonNode *node);
+
+/** Returns the length of a JSON array.
+ *
+ * @returns The length of object if it is an array, -1 otherwise.
+ */
+int json_get_length(JsonNode *object);
 
 /*** Debugging ***/
 
