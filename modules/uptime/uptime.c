@@ -1,4 +1,3 @@
-#include <aversive.h>
 #include <uptime.h>
 
 #ifdef __unix__
@@ -11,12 +10,16 @@ void uptime_set(timestamp_t time)
 
 #endif
 
-timestamp_t uptime_get(void) {
 #ifdef COMPILE_ON_ROBOT
+#include <system.h>
+#include <io.h>
+timestamp_t uptime_get(void) {
     return (IORD(TIMECOUNTER_BASE, 0));
-#else
-    return uptime_value;
-#endif
 }
+#else
+timestamp_t uptime_get(void) {
+    return uptime_value;
+}
+#endif
 
 

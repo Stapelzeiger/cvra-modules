@@ -22,7 +22,7 @@
 #include <math.h>
 
 #include <aversive.h>
-
+#include <stdint.h>
 #include <vect_base.h>
 #include <circles.h>
 //#include "../fast_math/fast_math.h"

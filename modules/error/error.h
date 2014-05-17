@@ -24,9 +24,10 @@
 
 #include <platform.h>
 
-#ifndef _AVERSIVE_ERROR_H_
-#error "Don't include <error.h>, include <aversive/error.h> instead"
-#endif
+#include <aversive.h>
+// #ifndef _AVERSIVE_ERROR_H_
+// #error "Don't include <error.h>, include <aversive/error.h> instead"
+// #endif
 
 #include <general_errors.h>
 

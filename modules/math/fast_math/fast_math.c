@@ -21,6 +21,7 @@
 #ifdef COMPILE_ON_ROBOT
  #include <uptime.h> /* for benchmark */
  #include <aversive.h>
+ #include <system.h>
 #endif
 
 
