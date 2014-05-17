@@ -101,7 +101,7 @@ static void accept_new_connection(int conn)
 
 void trace_task(void *arg)
 {
-    printf("thread task started\n");
+    printf("trace task started\n");
     // setup tcp listen
     int listenfd = socket(AF_INET, SOCK_STREAM, 0);
     if (listenfd < 0) {
