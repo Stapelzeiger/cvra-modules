@@ -1,3 +1,4 @@
+#include <platform.h>
 #include <cvra_servo.h>
 
 void cvra_servo_set(int channel, uint32_t value) {

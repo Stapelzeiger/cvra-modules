@@ -1,7 +1,7 @@
 #ifndef _CVRA_DC_H_
 #define _CVRA_DC_H_
 
-#include <aversive.h>
+#include <platform.h>
 
 #define DC_PWM_MAX_VALUE 475
 
@@ -27,7 +27,7 @@ void cvra_dc_set_pwm(void *device, int channel, int32_t value);
  *
  * This functions reads the position register of the board and returns its content.
  * @param [in] device A pointer to the base adress of the device.
- * @param [in] channel The encoder channel to read. 
+ * @param [in] channel The encoder channel to read.
  * @return The position of the asked encoder.
  */
 int32_t cvra_dc_get_encoder(void *device, int channel);
@@ -37,7 +37,7 @@ int32_t cvra_dc_get_encoder(void *device, int channel);
  * This function writes the given value to the count register of the given
  * channel.
  * @param [in] device A pointer to the base adress of the device.
- * @param [in] channel The encoder channel to read. 
+ * @param [in] channel The encoder channel to read.
  * @param [in] value The value to write to the register.
  */
 void cvra_dc_set_encoder(void *device, int channel, int32_t value);
@@ -134,6 +134,14 @@ int32_t cvra_dc_get_encoder4(void *device);
  * @returns The value of the encoder.
  */
 int32_t cvra_dc_get_encoder5(void *device);
+
+/** Similar to set_pwm but multiplies input by -1. */
+void cvra_dc_set_pwm0_negative(void *device, int32_t value);
+void cvra_dc_set_pwm1_negative(void *device, int32_t value);
+void cvra_dc_set_pwm2_negative(void *device, int32_t value);
+void cvra_dc_set_pwm3_negative(void *device, int32_t value);
+void cvra_dc_set_pwm4_negative(void *device, int32_t value);
+void cvra_dc_set_pwm5_negative(void *device, int32_t value);
 
 int32_t cvra_dc_get_index0(void *device);
 int32_t cvra_dc_get_index1(void *device);
