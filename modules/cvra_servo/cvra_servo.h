@@ -3,8 +3,10 @@
 
 #include <aversive.h>
 
-/** Sets the servo pulse width.
+/** Sets the servo pulse width in steps of 100ns.
  * @todo Can we set pulse time > 20ms ? What happens then ? */
-void cvra_servo_set(void *base, int channel, uint32_t value);
+void cvra_servo_set(int channel, uint32_t value);
+
+
 
 #endif
