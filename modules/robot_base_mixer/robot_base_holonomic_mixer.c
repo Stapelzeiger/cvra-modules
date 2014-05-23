@@ -21,7 +21,7 @@ static float r[3] = {
     WHEEL_RADIUS
 };
 
-#define WHEEL_DISTANCE 0.09252132883 // inner 87.7 mm outer 100 mm = 0.09385
+#define WHEEL_DISTANCE 0.09201491795 // inner 87.7 mm outer 100 mm = 0.09385
 // wheel distance from center
 static float D[3] = {
     WHEEL_DISTANCE,
