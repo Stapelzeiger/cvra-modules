@@ -3,7 +3,7 @@
 
 #include <aversive.h>
 
-#define CVRA_SERVO_NB_CHANNELS      6
+#define CVRA_SERVO_NB_CHANNELS      8
 
 /** Sets the servo pulse width in steps of 100ns.
  * @todo Can we set pulse time > 20ms ? What happens then ? */
